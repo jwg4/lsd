@@ -8,7 +8,7 @@ def pounds_and_new_pence(l, s, d):
     return l + s / 20 + d / 240
 
 
-def pounds_shillings_and_pence(x):
+def pounds_shillings_and_pence(x, rounding="nearest", delta="penny"):
     l = int(x)
     x = x - l
     s = int(x * 20)
