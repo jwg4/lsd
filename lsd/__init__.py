@@ -13,5 +13,5 @@ def pounds_shillings_and_pence(x):
     x = x - l
     s = int(x * 20)
     x = x * 20 - s
-    d = round(x * 12)
+    d = int(round(x * 12))
     return (l, s, d)
