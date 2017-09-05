@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='lsd',
-    version='0.1.0',
+    version='0.1.1',
     description='Pounds, shillings and pence conversion',
     url='http://github.com/jwg4/lsd',
     author='Jack Grahl',
