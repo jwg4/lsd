@@ -17,4 +17,4 @@ class TestRoundTrips(unittest.TestCase):
         l_, s_, d_ = pounds_shillings_and_pence(new_money, rounding="fraction")
         self.assertEqual(l_, l)
         self.assertEqual(s_, s)
-        self.assertEqual(d_, d)
+        self.assertAlmostEqual(d_, d)
