@@ -26,7 +26,7 @@ def _strict_rounding(x, k):
     if k == 1:
         d = int(d)
     else:
-        d = d / k
+        d = float(d / k)
     return d
 
 
