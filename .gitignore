@@ -2,3 +2,4 @@
 /lsd.egg-info
 /dist
 /.eggs/
+/.hypothesis
