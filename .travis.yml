@@ -11,6 +11,7 @@ install:
 script:
 - flake8 lsd/ --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
 - python -m doctest README.md
+- python -m doctest examples.md
 - python setup.py test
 notifications:
   email: false
