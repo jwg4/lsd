@@ -18,3 +18,12 @@ class TestRoundTrips(unittest.TestCase):
         self.assertEqual(l_, l)
         self.assertEqual(s_, s)
         self.assertAlmostEqual(d_, d)
+
+    @given(
+        p=decimals(min_value=0, max_value=100)
+    )
+    def test_round_trip_2(self, p):
+        l_, s_, d_ = pounds_shillings_and_pence(p, rounding="fraction")
+        p_ = pounds_and_new_pence(l_, s_, d_)
+        self.assertAlmostEqual(p_, p)
+        
