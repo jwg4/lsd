@@ -24,3 +24,8 @@ Exception: Using strict rounding, not an exact number of pennies.
 Traceback (most recent call last):
 ...
 Exception: Using strict rounding, not an exact number of pennies.
+
+>>> lsd.pounds_shillings_and_pence(Decimal("0.0125"), rounding="strict", granularity="penny")
+(0, 0, 3)
+>>> lsd.pounds_shillings_and_pence(Decimal("0.05"), rounding="strict", granularity="penny")
+(0, 1, 0)

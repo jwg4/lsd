@@ -34,7 +34,13 @@ def pounds_shillings_and_pence(x, rounding="nearest", granularity="penny"):
     elif rounding == "fraction":
         d = x * 12
     elif rounding == "strict":
-        raise Exception("Using strict rounding, not an exact number of pennies.")
+        d = x * 12 * k
+        if d != int(d):
+            raise Exception("Using strict rounding, not an exact number of pennies.")
+        if k == 1:
+            d = int(d)
+        else:
+            d = d / k
     else:
         raise Exception("Not a correct rounding specification: %s." % rounding)
     return (l, s, d)
