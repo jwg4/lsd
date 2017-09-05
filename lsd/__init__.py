@@ -19,6 +19,17 @@ def _get_granularity_multiplier(granularity):
         raise Exception("Not a correct granularity specification: %s." % granularity)
 
 
+def _strict_rounding(x, k):
+    d = x * 12 * k
+    if d != int(d):
+        raise Exception("Using strict rounding, not an exact number of pennies.")
+    if k == 1:
+        d = int(d)
+    else:
+        d = float(d / k)
+    return d
+
+
 def pounds_shillings_and_pence(x, rounding="nearest", granularity="penny"):
     l = int(x)
     x = x - l
@@ -34,7 +45,7 @@ def pounds_shillings_and_pence(x, rounding="nearest", granularity="penny"):
     elif rounding == "fraction":
         d = x * 12
     elif rounding == "strict":
-        raise Exception("Using strict rounding, not an exact number of pennies.")
+        d = _strict_rounding(x, k)
     else:
         raise Exception("Not a correct rounding specification: %s." % rounding)
     return (l, s, d)
