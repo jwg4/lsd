@@ -1,3 +1,5 @@
+## Converting to old money
+
 ```
 >>> import lsd
 >>> from decimal import Decimal
@@ -39,4 +41,31 @@ Exception: Using strict rounding, not an exact number of pennies.
 (0, 0, 1.5)
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="farthing")
 (0, 0, 1.5)
+```
+
+## Converting to new money
+
+```
+>>> import lsd
+>>> lsd.pounds_and_new_pence(19, 19, 6)
+Decimal('19.975')
+
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="nearest")
+Decimal('19.975')
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="fraction")
+Decimal('19.975')
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict")
+Decimal('19.975')
+
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="nearest", granularity="halfpenny")
+Decimal('19.975')
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="nearest", granularity="penny")
+Decimal('19.98')
+
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict", granularity="halfpenny")
+Decimal('19.975')
+>>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict", granularity="penny")
+Traceback (most recent call last):
+...
+Exception: Using strict rounding, not an exact number of new pence.
 ```
