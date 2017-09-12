@@ -1,9 +1,8 @@
 from __future__ import division
 from decimal import Decimal
 
+from constants import PENCE
 from .error import ConversionError, ArgumentError
-
-PENCE = Decimal('0.01')
 
 
 def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
