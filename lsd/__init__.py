@@ -1,3 +1,4 @@
+from __future__ import division
 from decimal import Decimal
 
 from .error import ConversionError
@@ -10,7 +11,7 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     exact = l + s / 20 + d / 240
     multiplier = _get_granularity_multiplier(granularity)
     if rounding == "nearest":
-        return round(exact * multiplier, 2) / Decimal(multiplier)
+        return round(exact * multiplier, 2) / multiplier
     if rounding == "strict":
         pence = exact * multiplier * 100
         if pence != int(pence):
