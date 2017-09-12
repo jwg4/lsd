@@ -17,7 +17,7 @@ class TestSuccessfulConversion(unittest.TestCase):
         self.assertIsNotNone(new_money)
 
     @given(
-        p=decimals(min_value=0)
+        p=decimals(min_value=0, allow_nan=False, allow_infinity=False)
     )
     def test_convert_to_old_money(self, p):
         old_money = pounds_shillings_and_pence(p, rounding="nearest")
