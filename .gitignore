@@ -1,3 +1,4 @@
 *.pyc
 /lsd.egg-info
 /dist
+/.eggs/
