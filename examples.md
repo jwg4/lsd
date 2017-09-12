@@ -71,3 +71,13 @@ Traceback (most recent call last):
 lsd.error.ConversionError: Using strict rounding, not an exact number of new pence.
 
 ```
+
+## Various completely wrong things
+>>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="carrot")
+Traceback (most recent call last):
+...
+lsd.error.ArgumentError: Not a correct granularity specification: 'carrot'
+>>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="desiccant", granularity="farthing")
+Traceback (most recent call last):
+...
+lsd.error.ArgumentError: Not a correct rounding specification: 'desiccant'

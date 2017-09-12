@@ -1,7 +1,7 @@
 from __future__ import division
 from decimal import Decimal
 
-from .error import ConversionError
+from .error import ConversionError, ArgumentError
 
 
 def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
@@ -20,7 +20,7 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     elif rounding == "fraction":
         return exact
     else:
-        raise Exception("Not a correct rounding specification: %s." % rounding)
+        raise ArgumentError("rounding", rounding)
 
 
 def _get_granularity_multiplier(granularity):
@@ -33,7 +33,7 @@ def _get_granularity_multiplier(granularity):
     elif granularity == "farthing":
         return 4
     else:
-        raise Exception("Not a correct granularity specification: %s." % granularity)
+        raise ArgumentError("granularity", granularity)
 
 
 def _strict_rounding(x, k, granularity):
@@ -64,5 +64,5 @@ def pounds_shillings_and_pence(x, rounding="nearest", granularity="penny"):
     elif rounding == "strict":
         d = _strict_rounding(x, k, granularity)
     else:
-        raise Exception("Not a correct rounding specification: %s." % rounding)
+        raise ArgumentError("rounding", rounding)
     return (l, s, d)

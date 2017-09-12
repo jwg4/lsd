@@ -19,3 +19,12 @@ class ConversionError(Exception):
             return "farthings"
         elif self.granularity == "halfpenny":
             return "half pence"
+
+
+class ArgumentError(Exception):
+    def __init__(self, field, value):
+        self.field = field
+        self.value = value
+
+    def __str__(self):
+        return "Not a correct %s specification: %s" % (self.field, repr(self.value))
