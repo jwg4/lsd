@@ -1,7 +1,7 @@
 from __future__ import division
 from decimal import Decimal
 
-from constants import PENCE
+from .constants import PENCE
 from .error import ConversionError, ArgumentError
 
 
@@ -22,30 +22,6 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
         return exact
     else:
         raise ArgumentError("rounding", rounding)
-
-
-def _get_granularity_multiplier(granularity):
-    if granularity == "penny":
-        return 1
-    elif granularity == "hapenny":
-        return 2
-    elif granularity == "halfpenny":
-        return 2
-    elif granularity == "farthing":
-        return 4
-    else:
-        raise ArgumentError("granularity", granularity)
-
-
-def _strict_rounding(x, k, granularity):
-    d = x * 12 * k
-    if d != int(d):
-        raise ConversionError(granularity)
-    if k == 1:
-        d = int(d)
-    else:
-        d = float(d / k)
-    return d
 
 
 def pounds_shillings_and_pence(x, rounding="nearest", granularity="penny"):
