@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 
-def pounds_and_new_pence(l, s, d, rounding="nearest"):
+def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     l = Decimal(l)
     s = Decimal(s)
     d = Decimal(d)
