@@ -6,7 +6,7 @@ class ConversionError(Exception):
     def __str__(self):
         return "Using strict rounding, not an exact number of %s." % (self.unit, )
 
-    @property
+    @property  # noqa: C901
     def unit(self):
         if self.granularity == "penny":
             if self.decimal:
