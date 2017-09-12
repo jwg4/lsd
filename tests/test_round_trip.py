@@ -13,7 +13,7 @@ class TestRoundTrips(unittest.TestCase):
         d=decimals(min_value=0, max_value=11.99)
     )
     def test_round_trip(self, l, s, d):
-        new_money = pounds_and_new_pence(l, s, d)
+        new_money = pounds_and_new_pence(l, s, d, rounding="fraction")
         l_, s_, d_ = pounds_shillings_and_pence(new_money, rounding="fraction")
         self.assertEqual(l_, l)
         self.assertEqual(s_, s)
