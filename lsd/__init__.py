@@ -5,13 +5,27 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     l = Decimal(l)
     s = Decimal(s)
     d = Decimal(d)
-    return l + s / 20 + d / 240
+    exact = l + s / 20 + d / 240
+    multiplier = _get_granularity_multiplier(granularity)
+    if rounding == "nearest":
+        return round(exact * multiplier, 2) / multiplier
+    if rounding == "strict":
+        pence = exact * multiplier * 100
+        if pence != int(pence):
+            raise Exception("Using strict rounding, not an exact number of new pence.")
+        return pence / (100 * multiplier)
+    elif rounding == "fraction":
+        return exact
+    else:
+        raise Exception("Not a correct rounding specification: %s." % rounding)
 
 
 def _get_granularity_multiplier(granularity):
     if granularity == "penny":
         return 1
     elif granularity == "hapenny":
+        return 2
+    elif granularity == "halfpenny":
         return 2
     elif granularity == "farthing":
         return 4
