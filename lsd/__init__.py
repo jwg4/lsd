@@ -9,7 +9,7 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     s = Decimal(s)
     d = Decimal(d)
     exact = l + s / 20 + d / 240
-    multiplier = _get_granularity_multiplier(granularity)
+    multiplier = Decimal(_get_granularity_multiplier(granularity))
     if rounding == "nearest":
         return round(exact * multiplier, 2) / multiplier
     if rounding == "strict":
