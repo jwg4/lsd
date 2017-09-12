@@ -3,6 +3,8 @@ from decimal import Decimal
 
 from .error import ConversionError, ArgumentError
 
+PENCE = Decimal('0.01')
+
 
 def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     l = Decimal(l)
@@ -11,7 +13,7 @@ def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
     exact = l + s / 20 + d / 240
     multiplier = Decimal(_get_granularity_multiplier(granularity))
     if rounding == "nearest":
-        return round(exact * multiplier, 2) / multiplier
+        return (exact * multiplier).quantize(PENCE) / multiplier
     if rounding == "strict":
         pence = exact * multiplier * 100
         if pence != int(pence):
