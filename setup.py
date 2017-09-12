@@ -10,5 +10,6 @@ setup(
     license='MIT',
     packages=['lsd'],
     zip_safe=False,
-    test_suite="tests"
+    test_suite="tests",
+    tests_require=["hypothesis"]
 )
