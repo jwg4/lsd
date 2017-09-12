@@ -12,7 +12,7 @@
 >>> lsd.pounds_shillings_and_pence(Decimal("1.49"), rounding="strict")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ConversionError: Using strict rounding, not an exact number of pennies.
+ConversionError: Using strict rounding, not an exact number of pennies.
 
 >>> lsd.pounds_shillings_and_pence(Decimal("1.49"), rounding="nearest", granularity="hapenny")
 (1, 9, 9.5)
@@ -22,11 +22,11 @@ lsd.error.ConversionError: Using strict rounding, not an exact number of pennies
 >>> lsd.pounds_shillings_and_pence(Decimal("1.49"), rounding="strict", granularity="hapenny")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ConversionError: Using strict rounding, not an exact number of ha'pennies.
+ConversionError: Using strict rounding, not an exact number of ha'pennies.
 >>> lsd.pounds_shillings_and_pence(Decimal("1.49"), rounding="strict", granularity="farthing")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ConversionError: Using strict rounding, not an exact number of farthings.
+ConversionError: Using strict rounding, not an exact number of farthings.
 
 >>> lsd.pounds_shillings_and_pence(Decimal("0.0125"), rounding="strict", granularity="penny")
 (0, 0, 3)
@@ -36,7 +36,7 @@ lsd.error.ConversionError: Using strict rounding, not an exact number of farthin
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="penny")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ConversionError: Using strict rounding, not an exact number of pennies.
+ConversionError: Using strict rounding, not an exact number of pennies.
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="hapenny")
 (0, 0, 1.5)
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="farthing")
@@ -68,7 +68,7 @@ Decimal('19.975')
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict", granularity="penny")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ConversionError: Using strict rounding, not an exact number of new pence.
+ConversionError: Using strict rounding, not an exact number of new pence.
 
 ```
 
@@ -77,19 +77,19 @@ lsd.error.ConversionError: Using strict rounding, not an exact number of new pen
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="strict", granularity="carrot")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ArgumentError: Not a correct granularity specification: 'carrot'
+ArgumentError: Not a correct granularity specification: 'carrot'
 >>> lsd.pounds_shillings_and_pence(Decimal("0.00625"), rounding="desiccant", granularity="farthing")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ArgumentError: Not a correct rounding specification: 'desiccant'
+ArgumentError: Not a correct rounding specification: 'desiccant'
 
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict", granularity="asdf")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ArgumentError: Not a correct granularity specification: 'asdf'
+ArgumentError: Not a correct granularity specification: 'asdf'
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding=4.4, granularity="penny")  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-lsd.error.ArgumentError: Not a correct rounding specification: 4.4
+ArgumentError: Not a correct rounding specification: 4.4
 
 ```
