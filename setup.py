@@ -2,8 +2,11 @@ from setuptools import setup
 
 setup(
     name='lsd',
-    version='0.3.0',
+    version='0.3.1',
     description='Pounds, shillings and pence conversion',
+    long_description=(
+        "A library for converting between pre-decimal British" +
+        " currency and decimal ('new pence') currency."),
     url='http://github.com/jwg4/lsd',
     author='Jack Grahl',
     author_email='jack.grahl@gmail.com',
