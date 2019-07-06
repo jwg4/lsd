@@ -14,5 +14,5 @@ setup(
     packages=['lsd'],
     zip_safe=False,
     test_suite="tests",
-    tests_require=["hypothesis"]
+    tests_require=["hypothesis==4.26.3"]
 )
