@@ -15,6 +15,12 @@ def _get_granularity_multiplier(granularity):
 
 
 def _strict_rounding(x, k, granularity):
+    """
+        Convert a fractional number of shillings into
+        a number of old pence. E.g. 0.375 converts to
+        4.5, only if the granularity is hapennies or farthings.
+        If the desired granularity is pence this will fail.
+    """
     d = x * 12 * k
     if d != int(d):
         raise ConversionError(granularity)
