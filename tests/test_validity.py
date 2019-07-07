@@ -1,5 +1,7 @@
 import unittest
 
+from decimal import Decimal, setcontext, BasicContext
+
 from hypothesis import given
 from hypothesis.strategies import integers, decimals
 
@@ -8,14 +10,20 @@ from lsd.error import ConversionError
 
 
 class TestSuccessfulConversion(unittest.TestCase):
+    def SetUp(self):
+        setcontext(BasicContext)
+
     @given(
-        l=integers(min_value=0),
+        l=integers(min_value=0, max_value=500000000000000000000000),
         s=integers(min_value=0, max_value=19),
         d=decimals(min_value=0, max_value=11.99)
     )
     def test_convert_to_new_money(self, l, s, d):
         new_money = pounds_and_new_pence(l, s, d, rounding="nearest")
         self.assertIsNotNone(new_money)
+        self.assertNotEqual(Decimal('NaN'), new_money)
+        self.assertNotEqual(Decimal('Infinity'), new_money)
+        self.assertNotEqual(Decimal('-Infinity'), new_money)
 
     @given(
         p=decimals(min_value=0, allow_nan=False, allow_infinity=False)
@@ -27,6 +35,9 @@ class TestSuccessfulConversion(unittest.TestCase):
 
 
 class TestPossiblySuccessfulConversion(unittest.TestCase):
+    def SetUp(self):
+        setcontext(BasicContext)
+
     @given(
         l=integers(min_value=0),
         s=integers(min_value=0, max_value=19),
