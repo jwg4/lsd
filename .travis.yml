@@ -27,5 +27,6 @@ deploy:
   user: jwg
   on:
     python: '3.5'
+    branch: 'master'
   password:
     secure: lv5IuxMdKpKtKgKWZ2bqUxBci39TKfYvDuvx9Y0lPSNfsBarSwiuEhcULr73ZlnUV7Vk5X5LTSWYX5pHeRqSS/08RnuL3lwjPsbpjlRTgT9w3fJvnEu6+p0lyEWD/2OshqQtXhwEe/gmkELX29KaZG1Ws+W6nRL0nLgusO44xAubdAO5J5wAQBAB870IjozvRbFLbjM/+e+jigDEXDzgSCw197GBzMI8SzD3QVhupdIUINSsyA23LgZx8OmQ7bsnl50ihbRlDHqNyiLMYcR+iCrXHRmGjDM/zWA2pAbb8uITKlvMKiSHcWDaHv3BXPFrD0YXmvNi9s8HMkm/qMbrhqjdvqhjqwAevw5L1y4dXwXQhIoC7GkZppmywFtwYBdowh8sIbOJf11hNTLpn+5NCzGKUZpFQocLEF88YjD79walBSBp8p3mQzFZYMQia7X5Si0Qt2vAf3AvF2KyWX5iEya2t7d6Sh6TrnANjFTe8J+S1+UMB8FrEhHND6/qe+C6DvyhOBk8cn2hH+xnRVnnw+K+b0tilpSEOAE7ud44F3fgUlTFOOGYALFGlaCfPM5WNKufa/baXmmbvOngilp+x4T/qGHPnCtgrF7j2z/rNcegtQ6+y80zsj0MZN8cs9jF59BFSMzbNbLdqONsb5KM9ZaqvOoD7ui0lXmUyHsJ6xI=
