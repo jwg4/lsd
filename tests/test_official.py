@@ -7,7 +7,7 @@ from lsd import pounds_and_new_pence
 
 class TestOfficialToDecimal(unittest.TestCase):
     """
-        These are official examples given by leaflets at the time of 
+        These are official examples given by leaflets at the time of
         Decimal Day in 1971. By default, we should convert these amounts
         correctly.
     """
