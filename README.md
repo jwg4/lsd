@@ -24,4 +24,4 @@ Calculations use the built-in Decimal class for amounts of pounds in new money. 
 See [[https://docs.python.org/2/library/decimal.html#context-objects]] or [[https://docs.python.org/3.7/library/decimal.html#context-objects]].
 
 ## Thanks
-There are only six tests for this project. That's thanks to the awesome hypothesis project which generates test cases for unit tests. It's really powerful for checking edge cases. See [[https://github.com/HypothesisWorks/hypothesis]]
+There are only a small number of tests for this project. That's thanks to the awesome hypothesis project which generates test cases for unit tests. It's really powerful for checking edge cases. See [[https://github.com/HypothesisWorks/hypothesis]]

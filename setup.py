@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='lsd',
-    version='0.3.2',
+    version='0.3.3',
     description='Pounds, shillings and pence conversion',
     long_description=(
         "A library for converting between pre-decimal British" +
