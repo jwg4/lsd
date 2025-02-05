@@ -6,12 +6,15 @@ from .error import ConversionError, ArgumentError
 from .helpers import _get_granularity_multiplier, _strict_rounding
 
 
-def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny"):
+def pounds_and_new_pence(l, s, d, rounding="nearest", granularity="halfpenny", official=False):
     l = Decimal(l)
     s = Decimal(s)
     d = Decimal(d)
     exact = l + s / 20 + d / 240
     multiplier = Decimal(_get_granularity_multiplier(granularity))
+
+    if official:
+        assert rounding == "nearest" and granularity == "halfpenny", "Official mode implies nearest rounding and halfpenny granularity" 
     if rounding == "nearest":
         return (exact * multiplier).quantize(PENCE) / multiplier
     if rounding == "strict":
