@@ -31,4 +31,4 @@ poetry run python -m unittest
 ```
 
 ## Thanks
-There are only a small number of tests for this project. That's thanks to the awesome hypothesis project which generates test cases for unit tests. It's really powerful for checking edge cases. See [[https://github.com/HypothesisWorks/hypothesis]]
+There are only a small number of tests for this project. That's thanks to the awesome hypothesis project which generates test cases for unit tests. It's really powerful for checking edge cases. See [Hypothesis on Github](https://github.com/HypothesisWorks/hypothesis)
