@@ -16,6 +16,9 @@ dependencies = [
 [tool.poetry.group.dev.dependencies]
 hypothesis = "4.26.3"
 
+[tool.poetry.group.dev]
+optional = true
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
