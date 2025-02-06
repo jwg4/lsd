@@ -1,0 +1,24 @@
+[project]
+name = "lsd"
+version = "0.4.0"
+description = "Pounds, shillings and pence conversion"
+authors = [
+    {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+hypothesis = "4.26.3"
+
+[tool.poetry.group.dev]
+optional = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
