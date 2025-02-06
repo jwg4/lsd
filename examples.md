@@ -58,6 +58,19 @@ Decimal('19.975')
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding="strict")
 Decimal('19.975')
 
+```
+
+The argument official, if set to True, will provide the rounding which was used officially when
+the decimal switch took place. This meant rounding to even when the exact value was an odd number
+of quarter pence. This only affects sums with either 3 or 9d, and means that the decimal conversions
+of 3d and 9d sum to the decimal conversion of 1 shilling.
+
+```
+>>> lsd.pounds_and_new_pence(0, 0, 9, official=True)
+Decimal('0.04')
+>>> lsd.pounds_and_new_pence(0, 0, 3, official=True)
+Decimal('0.01')
+
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding="nearest", granularity="halfpenny")
 Decimal('19.975')
 >>> lsd.pounds_and_new_pence(19, 19, 6, rounding="nearest", granularity="penny")
