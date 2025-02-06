@@ -7,6 +7,8 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
+homepage = "https://github.com/jwg4/lsd"
+repository = "https://github.com/jwg4/lsd"
 requires-python = ">=3.9"
 dependencies = [
 ]
